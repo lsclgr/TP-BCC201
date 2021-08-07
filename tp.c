@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #define TAM 64
 
@@ -52,17 +54,17 @@ void fillTable(char mat[TAM][TAM]) {
         for (int j = 0; j < 8; j++) {
             if (j % 2 == 0) {
                 if (i == 1) {
-                    mat[i][j] = 'x';
-                } else if (i == 5 || i == 7) {
                     mat[i][j] = 'o';
+                } else if (i == 5 || i == 7) {
+                    mat[i][j] = 'x';
                 } else {
                     mat[i][j] = '-';
                 }
             } else {
                 if (i == 0 || i == 2) {
-                    mat[i][j] = 'x';
-                } else if (i == 6) {
                     mat[i][j] = 'o';
+                } else if (i == 6) {
+                    mat[i][j] = 'x';
                 } else {
                     mat[i][j] = '-';
                 }
