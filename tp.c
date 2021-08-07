@@ -3,6 +3,13 @@
 #include <string.h>
 
 #define TAM 64
+#define ANSI_RESET "\x1b[0m"  // desativa os efeitos anteriores
+#define ANSI_BOLD "\x1b[1m"   // coloca o texto em negrito
+#define ANSI_COLOR_RED "\x1b[31m"
+#define ANSI_COLOR_CYAN "\x1b[36m"
+#define BOLD(string) ANSI_BOLD string ANSI_RESET
+#define RED(string) ANSI_COLOR_RED string ANSI_RESET
+#define CYAN(string) ANSI_COLOR_CYAN string ANSI_RESET
 
 void fillTable(char mat[TAM][TAM]);
 void printTable(char mat[TAM][TAM]);
@@ -13,7 +20,7 @@ void continueGame();
 int main() {
     char mat[TAM][TAM];
 
-    printf("Bem vindo ao Jogo de Damas\n\nO que deseja fazer: \n\n");
+    printf(BOLD("Bem vindo ao Jogo de Damas\n\nO que deseja fazer: \n\n"));
     if (printMenu() == 1) {
         fillTable(mat);
     }
@@ -77,23 +84,29 @@ void fillTable(char mat[TAM][TAM]) {
 void printTable(char mat[TAM][TAM]) {
     printf("    ");
     for (int i = 1; i <= 8; i++) {
-        printf("%2d", i);
+        printf(BOLD("%2d"), i);
     }
-    printf("\n   -------------------\n");
+    printf(BOLD("\n   -------------------\n"));
     char line = 72;
     for (int i = 0; i < 8; i++) {
-        printf("%2c |", line);
+        printf(BOLD("%2c |"), line);
         for (int j = 0; j < 8; j++) {
-            printf("%2c", mat[i][j]);
+            if (mat[i][j] == 'x') {
+                printf(RED("%2c"), mat[i][j]);
+            } else if (mat[i][j] == 'o') {
+                printf(CYAN("%2c"), mat[i][j]);
+            } else {
+                printf("%2c", mat[i][j]);
+            }
         }
-        printf(" |%2c", line);
+        printf(BOLD(" |%2c"), line);
         printf("\n");
         line--;
     }
-    printf("   -------------------\n");
+    printf(BOLD("   -------------------\n"));
     printf("    ");
     for (int i = 1; i <= 8; i++) {
-        printf("%2d", i);
+        printf(BOLD("%2d"), i);
     }
     printf("\n");
 }
