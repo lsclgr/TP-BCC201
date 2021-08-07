@@ -20,6 +20,8 @@ int main() {
     return 0;
 }
 
+// funçao para imprimir o menu para o usuario e direcionar para as devidas
+// funçoes
 int printMenu() {
     int option;
     printf(
@@ -34,6 +36,7 @@ int printMenu() {
             break;
 
         case 2:
+            continueGame();
             break;
 
         default:
@@ -42,6 +45,7 @@ int printMenu() {
     }
     return option;
 }
+
 // Funçao para preencher o tabuleiro no inicio do jogo
 void fillTable(char mat[TAM][TAM]) {
     for (int i = 0; i < 8; i++) {
@@ -92,7 +96,7 @@ void printTable(char mat[TAM][TAM]) {
     printf("\n");
 }
 
-//funçao para quando o usuario escolher começar um novo jogo
+// funçao para quando o usuario escolher começar um novo jogo
 void newGame() {
     int gamers;
     char gamer1[10], gamer2[10];
@@ -105,11 +109,12 @@ void newGame() {
         scanf("%s", gamer2);
     }
     printf(
-        "\nPara cada jogada, digite a casa de origem e a destino.\nPor exemplo, "
+        "\nPara cada jogada, digite a casa de origem e a destino.\nPor "
+        "exemplo, "
         "para mover da casa na linha D, \ncoluna 6 para a linha E coluna 5, "
         "digite: D6 E5\n"
         "Vamos começar o jogo!\n\n");
 }
 
-//funçao para quando o usuario escolher continuar um jogo salvo
+// funçao para quando o usuario escolher continuar um jogo salvo
 void continueGame() {}
