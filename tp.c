@@ -92,6 +92,7 @@ void printTable(char mat[TAM][TAM]) {
     printf("\n");
 }
 
+//funçao para quando o usuario escolher começar um novo jogo
 void newGame() {
     int gamers;
     char gamer1[10], gamer2[10];
@@ -110,4 +111,5 @@ void newGame() {
         "Vamos começar o jogo!\n\n");
 }
 
+//funçao para quando o usuario escolher continuar um jogo salvo
 void continueGame() {}
